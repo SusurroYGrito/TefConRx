@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplestEver", "SimplestEve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWithExtensionMethods", "SimpleWithExtensionMethods\SimpleWithExtensionMethods.csproj", "{2AE7F3BE-5DF7-4362-A94D-9DC8BA610EFA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Motivations", "Motivations", "{FE20E86A-F04A-4C31-96FF-EE8B6FF75448}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsAreClunky", "EventsAreClunky\EventsAreClunky.csproj", "{BD9B4F43-B5E5-4A3E-A815-7A0750AD5C0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,10 @@ Global
 		{2AE7F3BE-5DF7-4362-A94D-9DC8BA610EFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AE7F3BE-5DF7-4362-A94D-9DC8BA610EFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AE7F3BE-5DF7-4362-A94D-9DC8BA610EFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD9B4F43-B5E5-4A3E-A815-7A0750AD5C0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD9B4F43-B5E5-4A3E-A815-7A0750AD5C0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD9B4F43-B5E5-4A3E-A815-7A0750AD5C0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD9B4F43-B5E5-4A3E-A815-7A0750AD5C0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,5 +47,6 @@ Global
 		{F81C6C39-C15F-4742-8D85-B4F35B168254} = {69A39148-0D54-4673-B9BB-144EF2B01488}
 		{B02C268E-B263-436A-8E5F-4D4F504AB171} = {C4A248DE-E4B3-4E14-96D4-C789D9F34BFA}
 		{2AE7F3BE-5DF7-4362-A94D-9DC8BA610EFA} = {C4A248DE-E4B3-4E14-96D4-C789D9F34BFA}
+		{BD9B4F43-B5E5-4A3E-A815-7A0750AD5C0F} = {FE20E86A-F04A-4C31-96FF-EE8B6FF75448}
 	EndGlobalSection
 EndGlobal
