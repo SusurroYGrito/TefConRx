@@ -1,0 +1,24 @@
+﻿<Window x:Class="EventsThrottling.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen"  
+        WindowStyle="None" 
+        Height="350" 
+        Width="525" 
+        Background="#FF002B36" 
+        Foreground="Black" 
+        FontSize="30"
+        BorderThickness="0"
+        Margin="-1"
+        >
+    <StackPanel VerticalAlignment="Center" >
+        <StackPanel Margin="40">
+            <Label Foreground="White">Entrada de texto</Label>
+            <TextBox x:Name="textBox" TextChanged="TextBox_OnTextChanged" Margin="10,0"/>
+            <Label Foreground="White">Salida Sin Throttle</Label>
+            <TextBlock x:Name="textBlockUnthrottled" Background="White" Margin="10,0"/>
+            <Label Foreground="White">Salida Con Throttle</Label>
+            <TextBlock x:Name="textBlockThrottled" Background="White" Margin="10,0"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
