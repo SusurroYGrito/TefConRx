@@ -1,0 +1,17 @@
+﻿<Window x:Class="ConcurrentIO.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="220" 
+        Width="525" 
+        Background="#FF002B36" 
+        Foreground="Black" 
+        FontSize="30"
+        BorderThickness="0"
+        Margin="-1">
+    <StackPanel>
+        <Button Click="ButtonBase_OnClick">Start on new thread</Button>
+        <TextBlock x:Name="quote" Foreground="White" HorizontalAlignment="Center"/>
+        <Button Click="ButtonBase_OnClick2">Start Async</Button>
+        <TextBlock x:Name="quote2" Foreground="White" HorizontalAlignment="Center"/>
+    </StackPanel>
+</Window>
