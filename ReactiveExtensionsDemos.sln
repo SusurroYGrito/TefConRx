@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Advanced", "Advanced", "{A6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsThrottling", "EventsThrottling\EventsThrottling.csproj", "{357B6AAB-C6F7-48AB-91AA-39B32DFF08FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operators", "Operators\Operators.csproj", "{B7E31AC2-3FEE-4B22-B902-0B2854D37344}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{357B6AAB-C6F7-48AB-91AA-39B32DFF08FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{357B6AAB-C6F7-48AB-91AA-39B32DFF08FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{357B6AAB-C6F7-48AB-91AA-39B32DFF08FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7E31AC2-3FEE-4B22-B902-0B2854D37344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7E31AC2-3FEE-4B22-B902-0B2854D37344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7E31AC2-3FEE-4B22-B902-0B2854D37344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7E31AC2-3FEE-4B22-B902-0B2854D37344}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,5 +63,6 @@ Global
 		{2AE7F3BE-5DF7-4362-A94D-9DC8BA610EFA} = {C4A248DE-E4B3-4E14-96D4-C789D9F34BFA}
 		{BD9B4F43-B5E5-4A3E-A815-7A0750AD5C0F} = {FE20E86A-F04A-4C31-96FF-EE8B6FF75448}
 		{357B6AAB-C6F7-48AB-91AA-39B32DFF08FF} = {A6A0FDC9-12C5-49E3-9F56-BA902EC13726}
+		{B7E31AC2-3FEE-4B22-B902-0B2854D37344} = {A6A0FDC9-12C5-49E3-9F56-BA902EC13726}
 	EndGlobalSection
 EndGlobal

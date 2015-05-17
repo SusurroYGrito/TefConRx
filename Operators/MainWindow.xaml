@@ -1,0 +1,22 @@
+﻿<Window x:Class="Operators.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen"  
+        WindowStyle="None" 
+        Height="500" 
+        Width="700" 
+        Background="#FF002B36" 
+        Foreground="Black" 
+        FontSize="30"
+        BorderThickness="0"
+        Margin="-1">
+    <Grid>
+        <ListView x:Name="sms" Background="Transparent" >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+    </Grid>
+</Window>
