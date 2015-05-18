@@ -18,6 +18,7 @@ namespace Testing
     {
         IScheduler NewThread { get; set; }
         IScheduler Dispatcher { get; set; }
+        IScheduler ThreadPool { get; set; }
     }
 
     public class QuotesViewModel
@@ -41,7 +42,7 @@ namespace Testing
             _quoteService.GetQuote(symbol)
                 .SubscribeOn(_schedulers.NewThread)
                 .ObserveOn(_schedulers.Dispatcher)
-                .Timeout(TimeSpan.FromSeconds(10), _schedulers.NewThread)
+                .Timeout(TimeSpan.FromSeconds(10), _schedulers.ThreadPool)
                 .Subscribe(quote => Quote = quote,
                 ex =>
                 {
@@ -63,6 +64,7 @@ namespace Testing
             schedulers.NewThread = testNewThreadScheduler;
             var testDispatcherScheduler = new TestScheduler();
             schedulers.Dispatcher = testDispatcherScheduler;
+            schedulers.ThreadPool = TaskPoolScheduler.Default;
             var service = MockRepository.GenerateStub<IQuoteService>();
             var subject = new Subject<int>();
             service.Stub(s => s.GetQuote(Arg<string>.Is.Anything)).Return(subject);
@@ -79,6 +81,23 @@ namespace Testing
             viewmodel.Quote.Should().Be(105);
         }
 
+        [TestMethod]
+        public void QuotesViewModel_QuoteIsSet_WhenReturnedByService_ImmediateScheduler()
+        {
+            var schedulers = MockRepository.GenerateStub<ISchedulers>();
+            schedulers.NewThread = Scheduler.Immediate;
+            schedulers.Dispatcher = Scheduler.Immediate;
+            schedulers.ThreadPool = TaskPoolScheduler.Default;
+            var service = MockRepository.GenerateStub<IQuoteService>();
+            var subject = new Subject<int>();
+            service.Stub(s => s.GetQuote(Arg<string>.Is.Anything)).Return(subject);
+            var viewmodel = new QuotesViewModel(service, schedulers);
+
+            viewmodel.StartGetQuote("msft");
+            viewmodel.Quote.Should().Be(0);
+            schedulers.NewThread.Schedule(() => subject.OnNext(105));
+            viewmodel.Quote.Should().Be(105);
+        }
 
         [TestMethod]
         public void QuotesViewModel_TimedoutIsSet_WhenServiceTimesOut()
@@ -90,6 +109,8 @@ namespace Testing
             schedulers.NewThread = testNewThreadScheduler;
             var testDispatcherScheduler = new TestScheduler();
             schedulers.Dispatcher = testDispatcherScheduler;
+            var testThreadPoolScheduler = new TestScheduler();
+            schedulers.ThreadPool = testThreadPoolScheduler;
             var service = MockRepository.GenerateStub<IQuoteService>();
             service.Stub(s => s.GetQuote(Arg<string>.Is.Anything)).Return(Observable.Never<int>());
             var viewmodel = new QuotesViewModel(service, schedulers);
@@ -97,10 +118,10 @@ namespace Testing
             viewmodel.StartGetQuote("msft");
             viewmodel.Timedout.Should().BeFalse();
 
-            testNewThreadScheduler.AdvanceBy(timeoutPeriod.Ticks - 1);
+            testThreadPoolScheduler.AdvanceBy(timeoutPeriod.Ticks - 1);
             viewmodel.Timedout.Should().BeFalse();//Still false
 
-            testNewThreadScheduler.AdvanceBy(timeoutPeriod.Ticks);
+            testThreadPoolScheduler.AdvanceBy(timeoutPeriod.Ticks);
             viewmodel.Timedout.Should().BeTrue();
         }
     }
